@@ -17,7 +17,7 @@ const TvTopRate = () => {
         let url = `/tv/top_rated?page=${pageNum}`;
         let res = await api.get(url);
         // setMovieList(...movieList, ...res.data.results);
-        setMovieList(movieList);
+        setMovieList(res.data.results);
         console.log("hahaha", res.data.results);
         console.log(movieList.length);
         setTotalPage(res.data.total_pages);
