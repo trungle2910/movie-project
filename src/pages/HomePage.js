@@ -8,6 +8,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import PaginationBar from "../components/PaginationBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Badge, Carousel, Col, Container, Row } from "react-bootstrap";
+import Recommen from "../components/Recommen";
 
 const HomePage = () => {
   const ImgLink = process.env.REACT_APP_IMAGE;
@@ -97,7 +98,11 @@ const HomePage = () => {
               <img
                 className="d-block w-100"
                 src={`${ImgLink}${
-                  movieList.length >= 3 ? movieList[0].backdrop_path : false
+                  movieList.length >= 3
+                    ? movieList[0].backdrop_path == null
+                      ? movieList[0].poster_path
+                      : movieList[0].backdrop_path
+                    : false
                 }`}
                 alt="First slide"
               />
@@ -218,6 +223,9 @@ const HomePage = () => {
               )}
             </div>
           </section>
+          <div style={{ paddingRight: "23px" }}>
+            <Recommen />
+          </div>
         </Col>
       </Row>
     </Container>

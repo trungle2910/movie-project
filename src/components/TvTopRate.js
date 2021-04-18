@@ -16,7 +16,8 @@ const TvTopRate = () => {
       try {
         let url = `/tv/top_rated?page=${pageNum}`;
         let res = await api.get(url);
-        setMovieList(...movieList, ...res.data.results);
+        // setMovieList(...movieList, ...res.data.results);
+        setMovieList(movieList);
         console.log("hahaha", res.data.results);
         console.log(movieList.length);
         setTotalPage(res.data.total_pages);
@@ -32,7 +33,7 @@ const TvTopRate = () => {
     return (
       <div>
         <InfiniteScroll
-          // style={{ display: "flex", height: "auto" }}
+          style={{ display: "flex", height: "auto" }}
           dataLength={movieList.length}
           next={() => {
             pageNum < totalPage
@@ -41,7 +42,7 @@ const TvTopRate = () => {
           }}
           hasMore={true}
           loader={<h4>Loading...</h4>}
-          // height={"auto"}
+          height={"auto"}
         >
           {movieList.map((movie) => {
             return (
@@ -68,14 +69,14 @@ const TvTopRate = () => {
         <h1>top rated</h1>
         <ShowImg />
       </div>
-      {/* <div>
+      <div>
         <h1>top </h1>
         <ShowImg />
       </div>
       <div>
         <h1> rated</h1>
         <ShowImg />
-      </div> */}
+      </div>
     </div>
   );
 };
