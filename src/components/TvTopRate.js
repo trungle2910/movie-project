@@ -10,6 +10,7 @@ const TvTopRate = () => {
   const [pageNum, setPageNum] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   // const [hasMore, setHasMore] = useState(true);
+  const ImgLink = process.env.REACT_APP_IMAGE;
 
   useEffect(() => {
     const getData = async () => {
@@ -55,7 +56,14 @@ const TvTopRate = () => {
                   display: "flex",
                 }}
               >
-                <h1>{movie.name}</h1>
+                <img
+                  src={`${ImgLink}${
+                    movie?.backdrop_path == null
+                      ? movie?.poster_path
+                      : movie?.backdrop_path
+                  }`}
+                  alt="card image"
+                />
               </div>
             );
           })}
