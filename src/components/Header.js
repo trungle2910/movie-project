@@ -15,7 +15,7 @@ import * as React from "react";
 import HideOnScroll from "./HideOnScroll";
 import SideDrawer from "./SideDrawer";
 import BackToTop from "./BackToTop";
-
+import logo from "../img/logo.png";
 const useStyles = makeStyles({
   navbarDisplayFlex: {
     display: `flex`,
@@ -32,13 +32,7 @@ const useStyles = makeStyles({
   },
 });
 
-const navLinks = [
-  { title: `about us`, path: `/about-us` },
-  { title: `product`, path: `/product` },
-  { title: `blog`, path: `/blog` },
-  { title: `contact`, path: `/contact` },
-  { title: `faq`, path: `/faq` },
-];
+const navLinks = [{ title: `NowPlaying`, path: `/now` }];
 
 const Header = () => {
   const classes = useStyles();
@@ -46,15 +40,17 @@ const Header = () => {
   return (
     <>
       <HideOnScroll>
-        <AppBar position="fixed">
+        <AppBar position="fixed" className="navColor">
           <Toolbar component="nav">
             <Container maxWidth="md" className={classes.navbarDisplayFlex}>
-              <IconButton edge="start" aria-label="home">
-                <a href="/" style={{ color: `white` }}>
-                  <Home fontSize="large" />
-                </a>
-              </IconButton>
-
+              <div className={classes.navbarDisplayFlex}>
+                <img src={logo} style={{ height: "70px" }} />
+                <IconButton edge="start" aria-label="home">
+                  <a href="/" style={{ color: `white` }}>
+                    <Home fontSize="large" />
+                  </a>
+                </IconButton>
+              </div>
               <Hidden smDown>
                 <List
                   component="nav"

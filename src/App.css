@@ -15,7 +15,7 @@ body {
 }
 #team .card {
   border: none;
-  background: #ffffff;
+  background: #333333;
 }
 
 .image-flip:hover .backside,
@@ -62,7 +62,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: white;
+  background: #333333;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -o-transform: rotateY(-180deg);
@@ -93,7 +93,7 @@ body {
 
 .frontside .card,
 .backside .card {
-  height: 370px;
+  height: 400px;
   width: 300px;
   border-radius: 50px 0;
 }
@@ -105,7 +105,9 @@ body {
 
 .frontside .card .card-title,
 .backside .card .card-title {
-  color: #007b5e !important;
+  color: #05d3a3 !important;
+  font-size: large;
+  font-weight: 500;
 }
 .frontside .card .card-body {
   border: #007b5e 2px double;
@@ -114,10 +116,10 @@ body {
   /* margin-bottom: -10px; */
 }
 
-.frontside .card .card-body img {
+.frontside .card .card-body .imgCardStyle {
   width: 250px;
   height: 200px;
-  /* border-radius: 30px 0; */
+  border-radius: 30px 0;
 }
 /* button style */
 .button {
@@ -220,4 +222,224 @@ body {
 }
 .carousel {
   max-width: 100%;
+}
+
+/* button style loadmore */
+.wrap {
+  height: 100%;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.buttonStyle {
+  min-width: 200px;
+  min-height: 60px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(
+    90deg,
+    rgba(129, 230, 217, 1) 0%,
+    rgba(79, 209, 197, 1) 100%
+  );
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.buttonStyle::before {
+  content: "";
+  border-radius: 1000px;
+  max-width: calc(300px + 12px);
+  max-height: calc(60px + 12px);
+  border: 6px solid #00ffcb;
+  box-shadow: 0 0 60px rgba(0, 255, 203, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.buttonStyle:hover,
+.buttonStyle:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.buttonStyle:hover::before,
+.buttonStyle:focus::before {
+  opacity: 1;
+}
+
+.buttonStyle::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00ffcb;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.buttonStyle:hover::after,
+.buttonStyle:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+/* howver show text */
+.containerSlider {
+  position: relative;
+  width: 50%;
+}
+.imageSlider {
+  opacity: 1;
+  display: block;
+  height: 150px;
+  width: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middleSlider {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerSlider:hover .imageSlider {
+  opacity: 0.3;
+}
+
+.containerSlider:hover .middleSlider {
+  opacity: 1;
+}
+
+.textSlider {
+  /* background-color: #4caf50; */
+  color: rgb(214, 14, 14);
+  font-size: 18px;
+  font-weight: 700;
+  /* padding: 10px; */
+}
+.TvShowTitle {
+  font-size: 45px;
+  background: -webkit-linear-gradient(#833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.overviewTitle {
+  font-size: 35px;
+  background: -webkit-linear-gradient(#833ab4, #fd1d1d, #fcb045);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.authorReview {
+  font-size: 25px;
+  background: -webkit-linear-gradient(#a55ad6, #eb7070, #f0c589);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.detailTitle {
+  font-size: 40px;
+  font-weight: 800;
+  background: -webkit-linear-gradient(#f1f1bb, #d1cfe0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* home style */
+.nav-text {
+  grid-area: text;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 70px;
+  margin: 0 auto;
+  color: rgb(0, 0, 0);
+  text-shadow: 1vmin 1vmin 0 #e79c10, -1vmin -1vmin 0 #cd5c5c;
+  padding: 20px 30px 30px;
+}
+.bg-image-home {
+  /* The image used */
+  background-image: url("https://dailyplanetdc.com/wp-content/uploads/2020/12/wonder_woman_1984_wallpaper_textless_by_mintmovi3_dea6edh-fullview.jpg");
+
+  /* Add the blur effect */
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+
+  /* Full height */
+  height: 800px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text-home {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(212, 211, 211, 0.5); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.card-text-nowplay {
+  color: white;
+  font-size: 15px;
+  padding-top: 5px;
+}
+.navColor {
+  background: #355c7d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c06c84,
+    #6c5b7b,
+    #355c7d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #c06c84,
+    #6c5b7b,
+    #355c7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
