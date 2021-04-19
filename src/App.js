@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import DetailPage from "./pages/DetailPage";
 import { Favorite } from "@material-ui/icons";
 import NowPlayingPage from "./pages/NowPlayingPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/movie/:id" component={DetailPage} />
           <Route exact path="/favorite" component={Favorite} />
         </Switch>
+        {/* <Footer /> */}
       </Router>
     </>
   );

@@ -80,8 +80,9 @@ const DetailPage = () => {
     getTrailer();
     getReview();
   }, []);
-  const RenderDetail = () => {
-    return (
+
+  return (
+    <>
       <Container>
         {isLoading || !movieDetail ? (
           <>
@@ -206,7 +207,7 @@ const DetailPage = () => {
               <Modal.Body>
                 {movieTrailer ? (
                   <iframe
-                    src={`${process.env.REACT_APP_VIDEO}/${movieTrailer[0]}`}
+                    src={`${process.env.REACT_APP_VIDEO}/${movieTrailer[0].key}`}
                     width="100%"
                     height="570px"
                     frameBorder="0"
@@ -227,13 +228,8 @@ const DetailPage = () => {
           </>
         )}
       </Container>
-    );
-  };
-  return (
-    <Container fluid>
-      <RenderDetail />
       <Recommen movieIdRecommen={MOVIE_ID} />
-    </Container>
+    </>
   );
 };
 
